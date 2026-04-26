@@ -1,0 +1,37 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", "system-ui", "sans-serif";
+  
+  --color-primary-900: #1C1917;
+  --color-primary-800: #292524;
+  --color-secondary-600: #44403C;
+  --color-accent-gold: #CA8A04;
+  --color-accent-light: #FFD700;
+  
+  --color-bg-base: #FAFAF9;
+  --color-text-base: #0C0A09;
+}
+
+@layer base {
+  body {
+    @apply bg-primary-900 text-bg-base antialiased font-sans selection:bg-accent-gold selection:text-white;
+    background-image: 
+      radial-gradient(at 0% 0%, rgba(202, 138, 4, 0.15) 0px, transparent 50%),
+      radial-gradient(at 100% 100%, rgba(255, 215, 0, 0.1) 0px, transparent 50%);
+    background-attachment: fixed;
+    min-height: 100vh;
+  }
+}
+
+.glass-panel {
+  @apply bg-primary-800/40 backdrop-blur-md border border-white/10 shadow-xl rounded-2xl;
+}
+
+.glass-input {
+  @apply w-full bg-primary-900/50 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-accent-gold/50 transition-all duration-300;
+}
+
+.glass-button {
+  @apply bg-accent-gold hover:bg-accent-light text-primary-900 font-semibold px-6 py-3 rounded-xl transition-all duration-300 shadow-lg shadow-accent-gold/20 hover:shadow-accent-gold/40 flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed;
+}
